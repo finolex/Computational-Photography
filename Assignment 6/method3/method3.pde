@@ -8,17 +8,17 @@ void setup(){
   img1 = loadImage("img1.jpg");
   img2 = loadImage("img2.jpg");
   img3 = loadImage("img3.jpg");
-  sorted = createImage(img1.width, img1.height, RGB);
+  sorted = createImage(img3.width, img3.height, RGB);
   sorted.loadPixels();
-  img1.loadPixels();
-  sorted = img1.get();
+  img3.loadPixels();
+  sorted = img3.get();
   
-  for(int i=0; i < sorted.pixels.length; i+= 3){
+  for(int i=0; i < sorted.pixels.length; i+= 2){
     float record = -1;
     int selectedPixel =  i;
-    for(int j=i; j < sorted.pixels.length; j+= 10){
+    for(int j=i; j < sorted.pixels.length; j+= 50){
     color pix = sorted.pixels[j];
-    float b = hue(pix);
+    float b = saturation(pix);
     
     if (b > record){
       selectedPixel = j;
